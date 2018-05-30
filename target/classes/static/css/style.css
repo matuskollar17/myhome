@@ -1,0 +1,27 @@
+div {
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+
+.logo {
+	height: 150px;
+}
+
+.pagebody {
+	#padding: 100px;
+	#top: 150px;
+	text-align: center;
+}
+
+.icons {
+	height: 100px;
+}
+
+.center {
+    margin: auto;
+    width: 100%;
+    #border: 3px solid green;
+    padding: 10px;
+}
