@@ -13,11 +13,14 @@ import sk.mk.myhome.entity.ControllerUsers;
 
 @Transactional
 @Repository
-public class UserServiceJPA {
+public class UserServiceJPA implements UserService {
 	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
+	/* (non-Javadoc)
+	 * @see sk.mk.myhome.service.impl.UserService#register(sk.mk.myhome.entity.ControllerUsers)
+	 */
 	public void register(ControllerUsers user) {
 		if (isValid(user.getPassword()))
 			entityManager.persist(user);
@@ -28,6 +31,9 @@ public class UserServiceJPA {
 		return password.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,255})");
 	}
 	
+	/* (non-Javadoc)
+	 * @see sk.mk.myhome.service.impl.UserService#login(java.lang.String, java.lang.String)
+	 */
 	public ControllerUsers login(String login, String password) {
 		try {
 			return (ControllerUsers) entityManager.createQuery(
