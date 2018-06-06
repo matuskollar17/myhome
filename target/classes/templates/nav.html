@@ -7,6 +7,18 @@
 	</head>
 	
 	<body>
+	<div class="topnav">
+  <a class="active navlinks" href="/nav">Home</a>
+  <!-- <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a> -->
+  <span th:if='${@userController.logged}' class="navright">
+  <a href="/logout" class="navright">Logout</a>
+ 
+  <!-- <a href="/profile" class="navright"><p class="loggeded" th:text="'Logged as:' + ' ' + ${@userController.LoggedUser?.Login}" /></a> -->
+  <a href="/profile" class="navright"><p class="loggeded" th:text="${@userController.LoggedUser?.Login}" /></a>
+  </span>
+</div>
 <div class="container">
 	<div class="row logo pagebody">
 		<div class="col12">
