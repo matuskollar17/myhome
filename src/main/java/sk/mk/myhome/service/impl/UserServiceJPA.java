@@ -1,5 +1,7 @@
 package sk.mk.myhome.service.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -43,6 +45,10 @@ public class UserServiceJPA implements UserService {
 		} catch (NoResultException e) {
 			return null;
 		}
+	}
+	
+	public List<ControllerUsers> getControllerUsers() {
+		return entityManager.createQuery("SELECT cu FROM ControllerUsers cu ").getResultList();
 	}
 
 }

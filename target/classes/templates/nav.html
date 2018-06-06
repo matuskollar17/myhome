@@ -11,6 +11,8 @@
 	<div class="row logo pagebody">
 		<div class="col12">
 		<p>logo</p>
+		<p class="logged" th:text="'Logged as:' + ' ' + ${@userController.LoggedUser?.Login}" />
+		<a href="/logout">Logout</a>
 		</div>
 	</div>
 	<div class="row center pagebody">

@@ -29,13 +29,32 @@ public class UserController {
 			}*/
 			errormsg = "";
 			fillModel(model);
+			//return "redirect:/";
+			return "nav";
+		}
+		
+		@RequestMapping("/logout")
+		public String login(Model model) {
+			loggedUser = null;
+			//admin = false;
 			return "redirect:/";
 		}
 		
-		
 		private void fillModel(Model model) {
 			model.addAttribute("controller", this);
+			model.addAttribute("ControllerUsers", userServiceJPA.getControllerUsers());
 		//	model.addAttribute("ForumUser", userServiceJPA.getForumUser());
 		}
 		
+		public boolean isLogged() {
+			return loggedUser != null;
+		}
+		
+		public ControllerUsers getLoggedUser() {
+			return loggedUser;
+		}
+
+		public void setLoggedPlayer(ControllerUsers loggedUser) {
+			this.loggedUser = loggedUser;
+		}
 }

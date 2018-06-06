@@ -1,20 +1,15 @@
 package sk.mk.myhome.server;
 
 import org.springframework.boot.SpringApplication;
-
-
-import java.sql.SQLException;
-
-import javax.annotation.PostConstruct;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
 import sk.mk.myhome.controller.MyHomeController;
+import sk.mk.myhome.controller.UserController;
+import sk.mk.myhome.service.impl.UserService;
+import sk.mk.myhome.service.impl.UserServiceJPA;
 
 @SpringBootApplication
 @EnableAutoConfiguration
@@ -32,10 +27,15 @@ public class MyHomeServer {
 	}
 	
 	
-/*	@Bean
+	@Bean
 	public UserController userController() {
 		return new UserController();
-	}*/
+	}
+	
+	@Bean
+	public UserService userService() {
+		return new UserServiceJPA();
+	}
 	
 	
 	

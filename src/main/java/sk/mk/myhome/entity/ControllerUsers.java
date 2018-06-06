@@ -37,6 +37,10 @@ public class ControllerUsers {
 		this.password = password;
 	}
 	
+	public ControllerUsers() {
+	}
+	
+	
 	public ControllerUsers(String login, String password) {
 		this.login = login;
 		this.password = password;
