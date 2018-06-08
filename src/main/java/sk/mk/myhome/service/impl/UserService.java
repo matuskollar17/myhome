@@ -8,6 +8,8 @@ public interface UserService {
 
 	void register(ControllerUsers user);
 
+	boolean isAdmin(String login);
+	
 	ControllerUsers login(String login, String password);
 
 	List<ControllerUsers> getControllerUsers();

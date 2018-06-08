@@ -11,8 +11,16 @@ public class Controller {
 	public int state;
 	public int poweron;
 	public int poweroff;
+	public String label; 
 	
 	
+	
+	public String getLabel() {
+		return label;
+	}
+	public void setLabel(String label) {
+		this.label = label;
+	}
 	public int getPin() {
 		return pin;
 	}

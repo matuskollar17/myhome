@@ -17,6 +17,29 @@ public class ControllerUsers {
 	@Column(unique = true)
 	public String login;
 	public String password;
+	public int getAdmin() {
+		return admin;
+	}
+	public void setAdmin(int admin) {
+		this.admin = admin;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getViews() {
+		return views;
+	}
+	public void setViews(int views) {
+		this.views = views;
+	}
+
+
+	private int admin;
+	public String email;
+	public int views;
 	
 	public int getIdent() {
 		return ident;
@@ -45,6 +68,10 @@ public class ControllerUsers {
 		this.login = login;
 		this.password = password;
 	
+	}
+	public int getRights() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 

@@ -25,7 +25,7 @@ public class MyHomeController {
 		return "profile";
 	}
 
-	@RequestMapping("/admini")
+	@RequestMapping("/admin")
 	public String admin(Model model) {
 		//fillModel(model);
 		return "admin";

@@ -51,4 +51,13 @@ public class UserServiceJPA implements UserService {
 		return entityManager.createQuery("SELECT cu FROM ControllerUsers cu ").getResultList();
 	}
 
+	public boolean isAdmin(String login) {
+		try {
+			entityManager.createQuery("SELECT cu FROM ControllerUsers fu WHERE cu.admin =:admin AND cu.login =:login")
+					.setParameter("admin", 1).setParameter("login", login).getSingleResult();
+		} catch (NoResultException e) {
+			return false;
+		}
+		return true;
+	}
 }

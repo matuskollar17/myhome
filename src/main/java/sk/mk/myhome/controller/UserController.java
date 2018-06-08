@@ -12,7 +12,47 @@ import sk.mk.myhome.service.impl.UserService;
 public class UserController {
 
 		private ControllerUsers loggedUser;
+		public boolean isAdmin() {
+			return admin;
+		}
+
+		public void setAdmin(boolean admin) {
+			this.admin = admin;
+		}
+
+		public String getErrormsg() {
+			return errormsg;
+		}
+
+		public void setErrormsg(String errormsg) {
+			this.errormsg = errormsg;
+		}
+
+		private boolean admin;
 		private String errormsg;
+		
+		public String getErrorMsg() {
+			return errorMsg;
+		}
+
+		public void setErrorMsg(String errorMsg) {
+			this.errorMsg = errorMsg;
+		}
+
+		public String getLoginMsg() {
+			return loginMsg;
+		}
+
+		public void setLoginMsg(String loginMsg) {
+			this.loginMsg = loginMsg;
+		}
+
+		public void setLoggedUser(ControllerUsers loggedUser) {
+			this.loggedUser = loggedUser;
+		}
+
+		private String errorMsg;
+		private String loginMsg;
 		
 		@Autowired
 		private UserService userServiceJPA;
@@ -21,13 +61,15 @@ public class UserController {
 		public String login(ControllerUsers controllerUsers, Model model) {
 			loggedUser = userServiceJPA.login(controllerUsers.getLogin(), controllerUsers.getPassword());
 			//loginMsg = "";
-		/*	if (loggedUser == null) {
+			if (loggedUser == null) {
+				errorMsg = "Check your username or pass";
+				return "index";
 				//loginMsg = "Username or password wrong";
-			} else if (loggedPlayer.getRights() == -1) {
+			} else if (loggedUser.getRights() == -1) {
 				loginMsg = "your account is banned, contact administrator";
-				loggedPlayer = null;
-			}*/
-			errormsg = "";
+				loggedUser = null;
+			}
+			errorMsg = "";
 			fillModel(model);
 			//return "redirect:/";
 			return "nav";
