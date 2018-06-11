@@ -9,36 +9,50 @@
 	<body>
 	<div class="topnav">
   <a class="active navlinks" href="/nav">Home</a>
-  <!-- <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a> -->
-  <span th:if='${@userController.logged}' class="navright">
-  <a href="/logout" class="navright">Logout</a>
- 
-  <!-- <a href="/profile" class="navright"><p class="loggeded" th:text="'Logged as:' + ' ' + ${@userController.LoggedUser?.Login}" /></a> -->
-  <a href="/profile" class="navright"><p class="loggeded" th:text="${@userController.LoggedUser?.Login}" /></a>
-  </span>
-</div>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      	<i class="fa fa-caret-down"></i>
+    </button>
+    	<div class="dropdown-content">
+      		<a href="#">Link 1</a>
+      		<a href="#">Link 2</a>
+      		<a href="#">Link 3</a>
+      		<a href="/home">home</a>
+    	</div>
+  	</div> <span th:if='${@userController.logged}' class="navright">
+    <a
+			href="/logout" class="navright">Logout</a>
+			
+			 <!-- <a href="/profile" class="navright"><p class="loggeded" th:text="'Logged as:' + ' ' + ${@userController.LoggedUser?.Login}" /></a> -->
+
+			<a href="/profile" class="navright"><p class="loggeded" th:text="${@userController.LoggedUser?.Login}" /></a>
+			 <span th:if='${@userController.admin}'> <a href="/admin" class="navright">Admin Zone</a>
+	
+			
+
+			</span>
+
+		</span>
+	</div>
 <div class="container">
 	<div class="row logo pagebody">
 		<div class="col12">
-		<p>logo</p>
-		<p class="logged" th:text="'Logged as:' + ' ' + ${@userController.LoggedUser?.Login}" />
-		<a href="/logout">Logout</a>
+		
+			
 		</div>
 	</div>
 	<div class="row center pagebody">
 		<div class="col-4 icons">
-		<a href="/home">Home</a>
+		<a href="/home"><img src="../img/page/home.png" class="menuico" alt="Home" label="Home"/></a>
 		</div>
 		
 		
 		<div class="col-4 icons">
-		<a href="/garage">Garage</a>
+		<a href="/garage"><img src="../img/page/garage.png" class="menuico" alt="Garage" label="Garage"/></a>
 		</div>
 		
 		<div class="col-4 icons">
-		<a href="/garden">Garden</a>
+		<a href="/garden"><img src="../img/page/watering-can.png" class="menuico" alt="Garden" label="Garden"/></a>
 		</div>
 		
 	</div>

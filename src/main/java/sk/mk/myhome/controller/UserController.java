@@ -12,14 +12,7 @@ import sk.mk.myhome.service.impl.UserService;
 public class UserController {
 
 		private ControllerUsers loggedUser;
-		public boolean isAdmin() {
-			return admin;
-		}
-
-		public void setAdmin(boolean admin) {
-			this.admin = admin;
-		}
-
+	
 		public String getErrormsg() {
 			return errormsg;
 		}
@@ -80,6 +73,13 @@ public class UserController {
 			loggedUser = null;
 			//admin = false;
 			return "redirect:/";
+		}
+		
+		public boolean isAdmin() {
+			if (isLogged()) {
+				admin = userServiceJPA.isAdmin(loggedUser.getLogin());
+			}
+			return admin;
 		}
 		
 		private void fillModel(Model model) {
