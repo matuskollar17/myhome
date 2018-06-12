@@ -9,31 +9,25 @@
 	<body>
 	<div class="topnav">
   <a class="active navlinks" href="/nav">Home</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown 
-      	<i class="fa fa-caret-down"></i>
-    </button>
-    	<div class="dropdown-content">
-      		<a href="#">Link 1</a>
-      		<a href="#">Link 2</a>
-      		<a href="#">Link 3</a>
-      		<a href="/home">home</a>
-    	</div>
-  	</div> <span th:if='${@userController.logged}' class="navright">
+   <span th:if='${@userController.logged}' class="navright">
     <a
 			href="/logout" class="navright">Logout</a>
 			
 			 <!-- <a href="/profile" class="navright"><p class="loggeded" th:text="'Logged as:' + ' ' + ${@userController.LoggedUser?.Login}" /></a> -->
 
-			<a href="/profile" class="navright"><p class="loggeded" th:text="${@userController.LoggedUser?.Login}" /></a>
-			 <span th:if='${@userController.admin}'> <a href="/admin" class="navright">Admin Zone</a>
+			<a href="/profile" class="navright"><p class="loggeded" th:utext="${@userController.LoggedUser?.Login}" /></a>
+			 <span th:if='${@userController.admin}'> <a href="/admin" class="navright">User Management</a>
 	
 			
 
 			</span>
 
 		</span>
+		
 	</div>
+	
+
+	
 <div class="container">
 	<div class="row logo pagebody">
 		<div class="col12">

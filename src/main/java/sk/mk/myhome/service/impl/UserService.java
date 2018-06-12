@@ -13,4 +13,6 @@ public interface UserService {
 	ControllerUsers login(String login, String password);
 
 	List<ControllerUsers> getControllerUsers();
+	
+	void UserPassChange(String login, String password);
 }

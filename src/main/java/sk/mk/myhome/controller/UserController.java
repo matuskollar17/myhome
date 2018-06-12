@@ -1,5 +1,8 @@
 package sk.mk.myhome.controller;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,9 +74,31 @@ public class UserController {
 		@RequestMapping("/logout")
 		public String login(Model model) {
 			loggedUser = null;
-			//admin = false;
+			admin = false;
 			return "redirect:/";
 		}
+		
+		@RequestMapping("//userPassChange")
+		public String userPassChange(Model model, String login, String password) {
+			userServiceJPA.UserPassChange(login, password);
+			
+			return "admin";
+		}
+		
+		@RequestMapping("/register_sub")
+		public String register_sub(ControllerUsers controllerUsers, Model model) throws IOException, SQLException {
+						
+				/*if (!userServiceJPA.isPlayer(controllerUsers.getLogin())) {*/
+					userServiceJPA.register(controllerUsers);
+					//loggedUser = userServiceJPA.login(controllerUsers.getLogin(), controllerUsers.getPassword());
+				/*} else {
+					errormsg = "Login already exists!!";
+				}*/
+			
+			
+			return "admin";
+		}	
+		
 		
 		public boolean isAdmin() {
 			if (isLogged()) {
