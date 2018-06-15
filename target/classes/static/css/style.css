@@ -92,6 +92,7 @@ input {
 
 p {
 	color: white;
+
 }
 
 .menuico {
@@ -105,6 +106,9 @@ p {
 }
 
 
+.login {
+	text-align: center;
+}
 
 
 

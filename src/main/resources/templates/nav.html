@@ -15,7 +15,7 @@
 			
 			 <!-- <a href="/profile" class="navright"><p class="loggeded" th:text="'Logged as:' + ' ' + ${@userController.LoggedUser?.Login}" /></a> -->
 
-			<a href="/profile" class="navright"><p class="loggeded" th:utext="${@userController.LoggedUser?.Login}" /></a>
+			<a href="/profile" class="navright"><span class="loggeded" th:utext="${@userController.LoggedUser?.Login}" /></a>
 			 <span th:if='${@userController.admin}'> <a href="/admin" class="navright">User Management</a>
 	
 			
@@ -32,6 +32,8 @@
 	<div class="row logo pagebody">
 		<div class="col12">
 		
+			
+			
 			
 		</div>
 	</div>

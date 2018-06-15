@@ -7,7 +7,7 @@
 	</head>
 	
 	<body>
-	<div class="topnav">
+		<div class="topnav">
   <a class="active navlinks" href="/nav">Home</a>
    <span th:if='${@userController.logged}' class="navright">
     <a
@@ -31,27 +31,25 @@
 <div class="container">
 	<div class="row logo pagebody">
 		<div class="col12">
+		<span th:if='${@userController.admin}'>
 		
+		<p>Admin Pass change</p>
+		
+	 <form action="/userPassChange" method="post" enctype="multipart/form-data">
+    
+	<span>enter name</span><input type="text" name="login" id="login"/> <br/>
+    <span>enter passwd</span><input class="inpu" id="password" type="password" name="password" placeholder="Start123"/><br/>
+    <input type="submit" value="OK"/>
+    </form>
+    <br/>
+    
+   
+    	
 			
-			
-			
+		</span>
 		</div>
 	</div>
-	<div class="row center pagebody">
-		<div class="col-4 icons">
-		<a href="/home"><img src="../img/page/home.png" class="menuico" alt="Home" label="Home"/></a>
-		</div>
-		
-		
-		<div class="col-4 icons">
-		<a href="/garage"><img src="../img/page/garage.png" class="menuico" alt="Garage" label="Garage"/></a>
-		</div>
-		
-		<div class="col-4 icons">
-		<a href="/garden"><img src="../img/page/watering-can.png" class="menuico" alt="Garden" label="Garden"/></a>
-		</div>
-		
-	</div>
+	
 </div>
 	
 	</body>
