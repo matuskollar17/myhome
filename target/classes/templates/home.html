@@ -1,10 +1,67 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1"/>
-<title>Insert title here</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<title>My Home</title>
+	</head>
+	
+	<body>
+	<div class="topnav">
+  <a class="active navlinks" href="/nav">Home</a>
+   <span th:if='${@userController.logged}' class="navright">
+    <a
+			href="/logout" class="navright">Logout</a>
+			
+			 <!-- <a href="/profile" class="navright"><p class="loggeded" th:text="'Logged as:' + ' ' + ${@userController.LoggedUser?.Login}" /></a> -->
 
-</body>
+			<a href="/profile" class="navright"><span class="loggeded" th:utext="${@userController.LoggedUser?.Login}" /></a>
+			 <span th:if='${@userController.admin}'> <a href="/admin" class="navright">User Management</a>
+	
+			
+
+			</span>
+
+		</span>
+		
+	</div>
+	
+
+	
+<div class="container">
+	<div class="row logo pagebody">
+		<div class="col12">
+		
+			
+			
+			
+		</div>
+	</div>
+	<div class="row center pagebody">
+		<div class="col-12">
+		
+		<p> there will come pin info</p><br/>
+		
+		
+		<!-- //request mapping -->
+	<select name="boardslist">
+  	<!-- <option th:each='boards : ${Boards}' th:value="${forumUser.login}"> <p th:text="${forumUser.login}"/> </option> -->
+  	<option th:each='boards : ${Boards}' th:value="${boards.label}"> <p th:text="${boards.label}"/> </option>
+	</select>
+		<br/>
+		
+		  <span th:if='${@pinController.getBoard}' class="navright">
+		  
+		  </span>
+		
+		
+		</div>
+		
+		
+	
+	</div>
+</div>
+	
+	</body>
+	
 </html>

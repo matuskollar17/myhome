@@ -18,10 +18,10 @@
 </div>
 
 
-<div class="container pagebody login">
+<div class="container pagebody login" style="width:400px; margin-right:auto; margin-left:auto;">
  <p th:text='${@userController.errorMsg}'/>
 		<form action="/login" method="post">
-			<div class="row">
+			<div class="row login" >
 				<div class="col-25">
 					<label for="login"><p>User Name</p></label>
 				</div>
@@ -46,7 +46,7 @@
 
 
 				</div>
-				<div class="row">
+				<div class="row" style="width:400px; margin-right:auto; margin-left:auto;">
 					<input type="submit" value="Login" class="linkButton" />
 				</div>
 		</form>
