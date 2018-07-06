@@ -1,12 +1,13 @@
 package sk.mk.myhome.service.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import sk.mk.myhome.entity.Boards;
 import sk.mk.myhome.entity.Controller;
@@ -49,6 +50,10 @@ public class ControllerServiceJPA implements ControllerService {
 		} catch (NoResultException e) {
 			return null;
 		}
+	}
+	
+	public List<Boards> getBoard() {
+		return entityManager.createQuery("SELECT b FROM Boards b ").getResultList();
 	}
 
 }

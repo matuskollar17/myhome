@@ -9,4 +9,8 @@ public interface ControllerService {
 
 	void register(Boards boards);
 
+	Object getBoard();
+	
+	
+
 }

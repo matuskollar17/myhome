@@ -36,7 +36,7 @@ public class MyHomeServer {
 	}
 	
 	@Bean
-	public PinController pinontroller() {
+	public PinController pincontroller() {
 		return new PinController();
 	}
 	

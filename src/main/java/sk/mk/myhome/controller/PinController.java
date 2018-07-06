@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import sk.mk.myhome.entity.Boards;
 import sk.mk.myhome.service.impl.ControllerService;
+import sk.mk.myhome.service.impl.ControllerServiceJPA;
 import sk.mk.myhome.service.impl.UserService;
 
 @Controller
@@ -72,6 +73,7 @@ public class PinController {
 	private void fillModel(Model model) {
 		model.addAttribute("controller", this);
 		model.addAttribute("ControllerUsers", userServiceJPA.getControllerUsers());
+		model.addAttribute("Boards", controllerServiceJPA.getBoard());
 	}
 
 }
