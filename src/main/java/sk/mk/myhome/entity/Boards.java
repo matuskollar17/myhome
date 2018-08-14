@@ -22,14 +22,16 @@ public class Boards {
 	}
 	public int numOfPins;
 	
+	public Boards() {
+		
+	}
+	
 	public Boards(String label, int numOfPins) {
 		this.label = label;
 		this.numOfPins = numOfPins;
 		
 	}
 	
-	public Boards() {
-		
-	}
+
 
 }

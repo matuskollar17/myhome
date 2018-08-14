@@ -54,6 +54,12 @@ public class ControllerServiceJPA implements ControllerService {
 	
 	public List<Boards> getBoard() {
 		return entityManager.createQuery("SELECT b FROM Boards b ").getResultList();
+		
 	}
 
+	public Controller getState(int state) {
+		return (Controller) entityManager.createQuery("SELECT c.state FROM Controller c WHERE c.state = :state")
+		.setParameter("state", state).getSingleResult();
+	}
+	
 }

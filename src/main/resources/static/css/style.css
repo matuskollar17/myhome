@@ -105,10 +105,30 @@ p {
 	height: 170px;
 }
 
+.pwrbtn {
+	widht: 20px; 
+	height: 20px;
+}
+
+.pwrbtn:hover {
+	widht: 22px; 
+	height: 22px;
+}
+
+.bulb {
+	widht: 20px; 
+	height: 20px;
+}
 
 .login {
 	text-align: center;
 }
 
+table {
+    border-collapse: collapse;
+}
 
+table, th, td {
+    border: 1px solid black;
+}
 

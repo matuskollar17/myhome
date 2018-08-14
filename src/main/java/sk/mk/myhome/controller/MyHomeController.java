@@ -1,11 +1,24 @@
 package sk.mk.myhome.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import sk.mk.myhome.service.impl.ControllerService;
+import sk.mk.myhome.service.impl.UserService;
+
 @Controller
 public class MyHomeController {
+	
+	@Autowired
+	private UserService userServiceJPA;
+	
+	@Autowired
+	private ControllerService controllerServiceJPA;
+	
+	@Autowired
+	private PinController pinController;
 	
 	@RequestMapping("/")
 	public String user(Model model) {
@@ -33,7 +46,7 @@ public class MyHomeController {
 	
 	@RequestMapping("/home")
 	public String home(Model model) {
-		//fillModel(model);
+		fillModel(model);
 		return "home";
 	}
 	
@@ -48,4 +61,12 @@ public class MyHomeController {
 		//fillModel(model);
 		return "garden";
 	}
+	
+	private void fillModel(Model model) {
+		model.addAttribute("controller", this);
+		model.addAttribute("ControllerUsers", userServiceJPA.getControllerUsers());
+		model.addAttribute("Boards", controllerServiceJPA.getBoard());
+		model.addAttribute("pinController", pinController);
+		
+	}	
 }

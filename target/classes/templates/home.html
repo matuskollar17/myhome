@@ -44,16 +44,22 @@
 		
 		
 		<!-- //request mapping -->
-	<select name="boardslist">
-  	<!-- <option th:each='boards : ${Boards}' th:value="${forumUser.login}"> <p th:text="${forumUser.login}"/> </option> -->
-  	<!-- <option th:each='boards : ${Boards}' th:value="${boards.label}"> <p th:text="${boards.label}"/> </option> -->
-  	
-  	<option th:each='boards : ${Boards}' th:value="${boards.label}"> <p th:text="${boards.label}"/> </option>
+	<form action="/board_select" method="post">
+	<select name="board_select">
+  	 		<option th:each='boards : ${Boards}' th:value="${boards.numOfPins}"> <p th:text="${boards.label}"/> </option>
+  	 		
 	</select>
+	<input type="submit" value="OK"/>
+	</form>
+	
+	
 		<br/>
 		
-		<span th:if='${@pinController.getBoard}' class="navright"/>
+		<p class="budetabulka" th:utext='${pinController.render()}' />
+		
+		 
 		  
+		
 	   
 		
 		
