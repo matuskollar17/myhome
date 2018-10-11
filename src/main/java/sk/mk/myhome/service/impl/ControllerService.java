@@ -11,6 +11,6 @@ public interface ControllerService {
 
 	Object getBoard();
 	
-	
+	Controller getState();
 
 }

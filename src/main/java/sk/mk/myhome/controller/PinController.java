@@ -20,6 +20,8 @@ public class PinController {
 	
 	private Boards boards;
 	
+	private Controller controller;
+	
 	public Boards getBoards() {
 		return boards;
 	}
@@ -155,7 +157,9 @@ public class PinController {
 			
 			sb.append("<td>\n");
 			
-			sb.append("Controller.getLabel\n");
+			//sb.append("Controller.getLabel\n");
+			
+			sb.append(controllerServiceJPA.getState());
 			
 			sb.append("</td>\n");
 			

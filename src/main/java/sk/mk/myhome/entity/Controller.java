@@ -28,7 +28,7 @@ public class Controller {
 	public void setPin(int pin) {
 		this.pin = pin;
 	}
-	public int getState() {
+	public int getState(int pin) {
 		return state;
 	}
 	public void setState(int state) {
