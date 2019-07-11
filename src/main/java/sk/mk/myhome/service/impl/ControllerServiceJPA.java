@@ -40,6 +40,17 @@ public class ControllerServiceJPA implements ControllerService {
 		
 	}
 	
+/*	
+ * urobit register pre Controller entity, pridana category v tabulke pre selecty tabuliek v jednotnej forme
+ * 
+ * @Override
+	public void register(Controller controller) {
+		// TODO Auto-generated method stub
+		entityManager.persist(controller);
+		
+	}*/
+	
+	
 	public Boards label(String label, int numOfPins) {
 		try {
 			return (Boards) entityManager.createQuery(
@@ -67,6 +78,11 @@ public class ControllerServiceJPA implements ControllerService {
 		.getSingleResult();
 	}
 
+	
+	public Controller getTableRows(int tableRows) {
+		return (Controller) entityManager.createQuery("SELECT c.num_of_pin FROM Controller c where c.num_of_pin = :5")
+		.getSingleResult();
+	}
 	
 
 	

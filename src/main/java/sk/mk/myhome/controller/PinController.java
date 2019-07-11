@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import sk.mk.myhome.entity.Boards;
 import sk.mk.myhome.entity.ControllerUsers;
 import sk.mk.myhome.service.impl.ControllerService;
@@ -25,6 +26,10 @@ public class PinController {
 	public Boards getBoards() {
 		return boards;
 	}
+	
+	public String testVariable;
+		
+	
 
 	public void setBoards(Boards boards) {
 		this.boards = boards;
@@ -84,14 +89,33 @@ public class PinController {
 	}
 	
 	
+	@RequestMapping("/add_board_category")
+	public String addBoard(Controller controller, Model model) throws IOException, SQLException {
+					
+			/*if (!userServiceJPA.isPlayer(controllerUsers.getLogin())) {*/
+				controllerServiceJPA.register(boards);
+				//loggedUser = userServiceJPA.login(controllerUsers.getLogin(), controllerUsers.getPassword());
+			/*} else {
+				errormsg = "Login already exists!!";
+			}*/
+		
+		
+		return "admin";
+	}
+	
+	
+	
+	
 	@RequestMapping("/board_select")
 	public String boardSelect(@RequestParam(value = "board_select", required = false) String value, Boards boards, Model model ) throws IOException, SQLException {
 					
 			//if (value == 8) {}
-				int foo = Integer.parseInt(value);
-		setTableRows(foo);
+				//int foo = Integer.parseInt(value);
+		//setTableRows(foo);
 		System.err.println(value);
 		fillModel(model);
+		testVariable = value;
+//		
 		return "forward:/home";
 	}	
 	
@@ -105,8 +129,11 @@ public class PinController {
 	
 	public String render() {
 		
+		
 		StringBuilder sb = new StringBuilder();
-
+		sb.append("<p>");
+		sb.append(testVariable);
+		sb.append("</p>");
 		sb.append("<table class=''>\n");
 
 		sb.append("<tr>\n");
@@ -154,12 +181,16 @@ public class PinController {
 		
 		for (int i = 0; i < getTableRows(); i++) {
 			sb.append("<tr>\n");	
+			/*System.err.println(getTableRows());*/
 			
+			////need to get number of active pins.
+			//System.err.println(controllerServiceJPA.);
 			sb.append("<td>\n");
 			
 			//sb.append("Controller.getLabel\n");
 			
-			sb.append(controllerServiceJPA.getState());
+			/*sb.append(controllerServiceJPA.getState());*/
+			sb.append(testVariable);
 			
 			sb.append("</td>\n");
 			

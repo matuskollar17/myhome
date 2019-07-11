@@ -7,6 +7,8 @@ import javax.persistence.Id;
 public class Controller {
 	
 	@Id
+	public int ident;
+	public String category;
 	public int pin;
 	public int state;
 	public int poweron;
@@ -47,4 +49,21 @@ public class Controller {
 		this.poweroff = poweroff;
 	}
 
+	
+	public int getIdent() {
+		return ident;
+	}
+	public void setId(int ident) {
+		this.ident = ident;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public int getState() {
+		return state;
+	}
+	
 }

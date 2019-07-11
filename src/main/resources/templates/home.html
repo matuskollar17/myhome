@@ -45,10 +45,18 @@
 		
 		<!-- //request mapping -->
 	<form action="/board_select" method="post">
-	<select name="board_select">
+<!-- 	<select name="board_select">
   	 		<option th:each='boards : ${Boards}' th:value="${boards.numOfPins}"> <p th:text="${boards.label}"/> </option>
   	 		
+	</select> -->
+	
+	
+		<select name="board_select">
+  	 		<option th:each='boards : ${Boards}' th:value="${boards.label}"> <p th:text="${boards.label}"/> </option>
+  	 		
 	</select>
+	
+	
 	<input type="submit" value="OK"/>
 	</form>
 	
@@ -56,7 +64,7 @@
 		<br/>
 		
 		<p class="budetabulka" th:utext='${pinController.render()}' />
-		<p>sfsafsaf</p>
+		
 		
 		 
 		  

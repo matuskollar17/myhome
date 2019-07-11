@@ -62,6 +62,13 @@ public class MyHomeController {
 		return "garden";
 	}
 	
+	
+/*	@RequestMapping("/board_select")
+	public String board_select(Model model) {
+		fillModel(model);
+		return "home";
+	}*/
+	
 	private void fillModel(Model model) {
 		model.addAttribute("controller", this);
 		model.addAttribute("ControllerUsers", userServiceJPA.getControllerUsers());
