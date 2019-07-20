@@ -106,13 +106,13 @@ p {
 }
 
 .pwrbtn {
-	widht: 20px; 
-	height: 20px;
+	widht: 40px; 
+	height: 40px;
 }
 
 .pwrbtn:hover {
-	widht: 22px; 
-	height: 22px;
+	widht: 42px; 
+	height: 42px;
 }
 
 .bulb {

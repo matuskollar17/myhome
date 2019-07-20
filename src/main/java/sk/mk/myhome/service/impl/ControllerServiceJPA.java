@@ -40,6 +40,8 @@ public class ControllerServiceJPA implements ControllerService {
 		
 	}
 	
+	int numOfPins;
+	
 /*	
  * urobit register pre Controller entity, pridana category v tabulke pre selecty tabuliek v jednotnej forme
  * 
@@ -50,7 +52,16 @@ public class ControllerServiceJPA implements ControllerService {
 		
 	}*/
 	
+	/// vyhodit nepouzite vstupne premenne 
 	
+	public int getNumOfPins() {
+		return numOfPins;
+	}
+
+	public void setNumOfPins(int numOfPins) {
+		this.numOfPins = numOfPins;
+	}
+
 	public Boards label(String label, int numOfPins) {
 		try {
 			return (Boards) entityManager.createQuery(
@@ -67,6 +78,27 @@ public class ControllerServiceJPA implements ControllerService {
 		return entityManager.createQuery("SELECT b FROM Boards b ").getResultList();
 		
 	}
+	
+	public List<Boards> getBoardLabel() {
+		return entityManager.createQuery("SELECT b FROM Boards b ").getResultList();
+		
+	}
+	
+	public String getBoardInfo(String label) {
+		try  {
+			entityManager.createQuery("SELECT b.numOfPins FROM Boards b where b.label =:label")
+			.setParameter("label", label).getSingleResult();
+						
+		} catch (NoResultException e) {
+		
+		}
+		return  ;
+		
+		
+		
+	}
+	
+	
 
 /*	public Controller getState(int pin) {
 		return (Controller) entityManager.createQuery("SELECT c.state FROM Controller c WHERE c.pin = :pin")
@@ -78,11 +110,8 @@ public class ControllerServiceJPA implements ControllerService {
 		.getSingleResult();
 	}
 
-	
-	public Controller getTableRows(int tableRows) {
-		return (Controller) entityManager.createQuery("SELECT c.num_of_pin FROM Controller c where c.num_of_pin = :5")
-		.getSingleResult();
-	}
+
+
 	
 
 	

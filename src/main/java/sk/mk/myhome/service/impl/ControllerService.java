@@ -11,6 +11,12 @@ public interface ControllerService {
 
 	Object getBoard();
 	
+	Object getBoardLabel();
+	
+	String getBoardInfo(String label);
+	
 	Controller getState();
 
+	Controller getTableRows(String label);
+	
 }

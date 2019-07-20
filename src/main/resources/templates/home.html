@@ -54,7 +54,7 @@
 		<select name="board_select">
   	 		<option th:each='boards : ${Boards}' th:value="${boards.label}"> <p th:text="${boards.label}"/> </option>
   	 		
-	</select>
+		</select>
 	
 	
 	<input type="submit" value="OK"/>
@@ -62,7 +62,7 @@
 	
 	
 		<br/>
-		
+		<!-- <p class="budetabulka" th:utext='${pinController.rowTest()}' /> -->
 		<p class="budetabulka" th:utext='${pinController.render()}' />
 		
 		

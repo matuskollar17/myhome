@@ -29,7 +29,7 @@ public class PinController {
 	
 	public String testVariable;
 		
-	
+	public int rowTest = getTableRows();
 
 	public void setBoards(Boards boards) {
 		this.boards = boards;
@@ -113,8 +113,23 @@ public class PinController {
 				//int foo = Integer.parseInt(value);
 		//setTableRows(foo);
 		System.err.println(value);
+		//int skusam = controllerServiceJPA.getBoardInfo(value);
+		//int hodnota = controllerServiceJPA.getBoardInfo(value);
+		int foo = Integer.parseInt(controllerServiceJPA.getBoardInfo(value));
+		
+		System.err.println(foo);
+		//for (int i = 0; i < controllerServiceJPA.getBoardInfo(value); i++) {
+			
+		//};
+		
+		
+	//	controllerServiceJPA.getBoardInfo(value);
+		//System.err.println(skusam);
+	//	controllerServiceJPA.getBoard(get);
+		//System.err.println(controllerServiceJPA.getBoardInfo(value));
+		//testVariable = value;
 		fillModel(model);
-		testVariable = value;
+		
 //		
 		return "forward:/home";
 	}	
@@ -124,62 +139,72 @@ public class PinController {
 		model.addAttribute("pinController", this);
 		model.addAttribute("ControllerUsers", userServiceJPA.getControllerUsers());
 		model.addAttribute("Boards", controllerServiceJPA.getBoard());
-		
+		model.addAttribute("Boards", controllerServiceJPA.getBoardLabel());
+		//model.addAttribute("Boards", controllerServiceJPA.getBoardInfo(testVariable));
+		//model.addAttribute("GetTableRows", controllerServiceJPA.getTableRows(tableRows));
 	}
+	
+		public void valueTest() {
+		System.out.println(rowTest);
+		}
 	
 	public String render() {
 		
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append("<p>");
+		sb.append("je tu toten gadzo");
 		sb.append(testVariable);
+		sb.append(testVariable);
+	//	sb.append(controllerServiceJPA.getBoardInfo(testVariable));
 		sb.append("</p>");
 		sb.append("<table class=''>\n");
 
 		sb.append("<tr>\n");
 		
-		sb.append("<th>\n");
+				sb.append("<th>\n");
 		
-		sb.append("<p>Label</p>\n");
+					sb.append("<p>Label</p>\n");
 		
-		sb.append("</th>\n");
+				sb.append("</th>\n");
 
 		
-		sb.append("<th>\n");
+				sb.append("<th>\n");
 		
-		sb.append("<p>Pin</p>\n");
+					sb.append("<p>Pin</p>\n");
 		
-		sb.append("</th>\n");
+				sb.append("</th>\n");
 		
-		sb.append("<th>\n");
+				sb.append("<th>\n");
 		
-		sb.append("<p>On</p>\n");
+					sb.append("<p>On</p>\n");
 		
-		sb.append("</th>\n");
+				sb.append("</th>\n");
 		
-		sb.append("<th>\n");
+				sb.append("<th>\n");
 		
-		sb.append("<p>Off</p>\n");
+					sb.append("<p>Off</p>\n");
 		
-		sb.append("</th>\n");
+				sb.append("</th>\n");
 		
-		sb.append("<th>\n");
+				sb.append("<th>\n");
 		
-		sb.append("<p>State</p>\n");
+					sb.append("<p>State</p>\n");
 		
-		sb.append("</th>\n");
+				sb.append("</th>\n");
 		
-		sb.append("<th>\n");
+				sb.append("<th>\n");
 		
-		sb.append("<p>Scheduler</p>\n");
+					sb.append("<p>Scheduler</p>\n");
 		
-		sb.append("</th>\n");
+				sb.append("</th>\n");
 		
-		sb.append("</tr>\n");
+				sb.append("</tr>\n");
 		
 		/* table head si completed, loop will create requested number of lines with buttons*/
 		
-		for (int i = 0; i < getTableRows(); i++) {
+		//for (int i = 0; i < getTableRows(); i++) {
+				for (int i = 0; i < 8; i++) {
 			sb.append("<tr>\n");	
 			/*System.err.println(getTableRows());*/
 			
